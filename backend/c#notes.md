@@ -86,7 +86,9 @@ static async Task Main(string[] args) { }
 static async Task<int> Main(string[] args) { }
 ```
 
-## Variables
+## Basics of OOPS
+
+### Variables
 
 | readonly | const |
 | ----------- | ----------- |
@@ -94,6 +96,60 @@ static async Task<int> Main(string[] args) { }
 | value might not be known at compilation time | value must be known at compilation time |
 | if value is set during compiling or run time, it cannot be changed| value is already set during compilation, so cannot be reset during runtime and changed later |
 
+
+### Methods vs Computed Properties
+
+```c#
+public class Rectangle
+{
+    private double _width;
+    private double _height;
+
+    public double Width
+    {
+        get { return _width; }
+        set { _width = value; }
+    }
+
+    public double Height
+    {
+        get { return _height; }
+        set { _height = value; }
+    }
+
+    // Computed field (property)
+    public double Area
+    {
+        get { return Width * Height; }  // Computed on access
+    }
+
+    // Method
+    public double CalculateArea()
+    {
+        return Width * Height;  // Calculate the area and return it
+    }
+}
+```
+
+#### Key Differences:
+| Feature |	Computed Field (Property) |	Method|
+| ------- | ------------------------- | ----- |
+| Purpose | Provides a dynamically calculated value, often based on other fields. |	Performs an action or calculation; can also return a value. |
+| Access  | Accessed like a field (via the property). | Called explicitly like a function. |
+| Storage | Does not store a value; computes it on access. | May or may not store values, but typically involves more complex behavior. |
+| Return Type | Returns a value directly when accessed. | Can return a value, or perform an operation. |
+| Example Use Case | Calculating a value based on other properties (e.g., area of a rectangle). | Performing an operation or action (e.g., updating state, sending data). |
+
+
+#### When to Use Each:
+- Use `computed fields` (properties) when 
+    - you need a value that is derived from other data but can be treated as if it's a simple property.
+    - For example, the Area of a rectangle or the Full Name of a person.
+
+- Use `methods` when 
+    - you need to perform more complex operations, 
+    - possibly involving parameters, side effects, or 
+    - returning values that require explicit action (e.g., calculating a value based on complex logic, interacting with external resources, etc.).
 
 ## OOPS
 
