@@ -151,6 +151,33 @@ public class Rectangle
     - possibly involving parameters, side effects, or 
     - returning values that require explicit action (e.g., calculating a value based on complex logic, interacting with external resources, etc.).
 
+### Constructors & Object Initializers
+| Constructors | Object Initializers |
+| ------------ | ------------------- |
+| All variables need to be passed while creating object | Preferred when all variables are not to be passed |
+| Preferred when num of parameters are less | Preferred when num of parameters are more |
+| Parameters are not very clear when large in number | Properties names are clear |
+
+### init
+`init` is used to set the value of property only at the time of object initialization. If we try to reset property later, we will get error. Its way of making property as private.
+```c#
+public class Person
+{
+    public string? Name { get; set; }
+    public int Age { get; init; }
+}
+```
+
+```c#
+Person person1 = new Person
+{
+    Name = "Tajinder Singh",
+    Age = 29
+};
+
+person1.Age = 30; // this will give error as Age cannot be set after initialization
+```
+
 ## OOPS
 
 ### Encapsulation & Data Hiding
