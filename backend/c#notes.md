@@ -57,10 +57,18 @@ namespace YourNamespace
     }
 }
 ```
+
+### Basics of C#
+- Statically Typed Programming Language i.e. variable of 1 type cannot be assigned to variable of another type.
+
 ### Namespace
 - Collection of programs and libraries
 - For example, the System namespace contains many types, such as the Console class referenced in the program, and many other namespaces, such as IO and Collections. 
 - A <mark>using</mark> directive that references a given namespace enables unqualified use of the types that are members of that namespace. Because of the using directive, the program can use `Console.WriteLine` as shorthand for `System.Console.WriteLine`
+- Declares a scope that contains a set of related types
+- Type not placed in any namespace belongs to the global namespace
+- Namespaces names should follow the folder structure
+- Classes using same namespaces do not need to use 'using' directive to import namespaces
 
 ### Main 
 
@@ -176,6 +184,104 @@ Person person1 = new Person
 };
 
 person1.Age = 30; // this will give error as Age cannot be set after initialization
+```
+
+### Stateless vs Stateful Class
+| Stateless Class | Stateful Class |
+| --------------- | -------------- |
+| Maintains state of an onject of class | Do not have any state |
+| Has variables and properties to maintain state | Does not have any variable or property to maintain state |
+
+
+### Static class
+- Static class is a stateless class
+- Does not have variables or properties to maintain state
+- Serves as a container for methods/ functions
+- Cannot be instantiated (No object can be formed of static class)
+- It can only have static methods
+
+### Non Static Class
+- Can have variables and properties
+- Can have both static and non static methods
+
+### Static Methods
+- Belong to class as a whole and not to instance of a class
+- Do not have access to variables and properties of a class
+- cannot be called using object, but called using class
+- Works faster than non static methods
+- `:Thumb Rule` <mark>If a private method does not use instance (object) data, make it static<mark/>
+
+### Non Static Method
+- Cannot be called from static method
+- can only be called using instance (object) of a class
+
+### Static fiels or properties
+- not a good practice to declare static fieldsa and properties
+- it adds complexity to code
+
+### const field
+- const fields are implicitly static
+- to be called same as stattic classes outside the class
+
+### Best practices
+- Public methods should precede the private methods in a class
+
+### Principles
+- SOLID
+    - `SRP`: Single Responsibility Principles
+    - `Open/Closed Principle (OCP)`: A class should be open for extension, but closed for modification. You should be able to add new functionality without changing existing code.
+    - `Liskov Substitution Principle (LSP)`: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+    - `Interface Segregation Principle (ISP)`: Clients should not be forced to depend on interfaces they do not use. Instead of one large interface, break it into smaller, more specific interfaces.
+    - `Dependency Inversion Principle (DIP)`: High-level modules should not depend on low-level modules. Both should depend on abstractions. Also, abstractions should not depend on details; details should depend on abstractions.
+- DRY: Don't Repeat Yourself
+- KISS: Keep it Somple, Stupid!
+
+### Magic Number Pattern
+
+### enum
+In C#, an enum (short for enumeration) is a distinct value type that defines a set of named constants. It provides a way to represent a collection of related constants, making the code more readable and manageable. Enums are often used to represent things like days of the week, months, status codes, or any set of predefined values.
+
+<mark>Under the hood, constants in enum have int values starting from 0 unless changed<marl/>
+
+`Syntax:`
+```C#
+public enum EnumName
+{
+    Value1,
+    Value2,
+    Value3,
+    // ...
+}
+```
+
+`examples`
+```C#
+public enum DayOfWeek
+{
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday
+}
+
+public enum DayOfWeek
+{
+    Loss,
+    Victory,
+    Draw
+}
+
+public enum HttpCode
+{
+    Ok = 200,
+    Create = 201,
+    Unauthorized = 401,
+    Forbidden = 403,
+    Internal Server Error 500,
+}
 ```
 
 ## OOPS
