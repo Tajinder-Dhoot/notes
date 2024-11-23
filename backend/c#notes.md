@@ -284,6 +284,90 @@ public enum HttpCode
 }
 ```
 
+### Access Modifiers
+- Public:
+- Private:
+- Protected: Can be used in dervied classes but not in other classes
+
+### Virtual Methods
+- Virtual methods or properties may be overridden by the inheriting types.
+
+### Type Casting
+#### Upcasting
+- Conversion of derived class to base class.
+- Done by Implicit Conversion.
+- Because object of derived class is also an object of base class<br>
+` Ingredient ingredient = new Cheese();`
+
+#### Downcasting
+- Conversion of base class to dervied class.
+- Done by Explicit Conversion.
+- <mark>Must be careful</mark> because variable of base class might not be of dervied class type<br>
+` Cheese chhedar = (Cheese) new Ingredient();`
+
+```c#
+public class MainClass
+{
+    public static void  Main(string[] args)
+    {
+        var ingredient = new Ingredient();
+        var cheese = new Cheese();
+        var cheddar = new Cheddar();
+
+        Cheddar cheddar1= (Cheddar) cheddar.GenerateRandomIngredient();
+    }
+}
+
+public class Ingredient
+    {
+        public Ingredient()
+        {
+            Console.WriteLine("class ingredient");
+        }
+
+        public Ingredient GenerateRandomIngredient()
+        {
+            int randomNum = new Random().Next(0, 3);
+            Console.WriteLine("random number: " + randomNum);
+            if (randomNum == 0) { return new Cheddar(); }
+            if (randomNum == 1) { return new Mozerrela(); }
+            else { return new Veggie(); }
+        }
+    }
+
+    public class Cheese : Ingredient
+    {
+        public Cheese()
+        {
+            Console.WriteLine("class cheese");
+        }
+    }
+
+    public class Veggie : Ingredient
+    {
+        public Veggie()
+        {
+            Console.WriteLine("class veggie");
+        }
+    }
+```
+
+#### 'as' operator
+- used for explicit Conversion
+- returns null if conversion fails
+```c#
+Ingredient ingredient = GenerateRandomIngredient();
+Cheese chhedar = ingredient as Cheese;
+if(cheddar is not null)
+{
+    Console.WriteLine("use cheddar");
+}
+else
+{
+    Console.WriteLine("conversion failed);
+}
+```
+
 ## OOPS
 
 ### Encapsulation & Data Hiding
