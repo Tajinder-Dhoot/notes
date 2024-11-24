@@ -280,17 +280,17 @@ public enum HttpCode
     Create = 201,
     Unauthorized = 401,
     Forbidden = 403,
-    Internal Server Error 500,
+    Internal Server Error = 500
 }
 ```
-  
+
 ### Access Modifiers
 - Public:
 - Private:
 - Protected: Can be used in dervied classes but not in other classes
 
 ### Virtual Methods
-- Virtual methods or properties may be overridden by the inheriting types.
+- Virtual methods or properties may be overridden in the derived classes.
 
 ### Type Casting
 #### Upcasting
@@ -384,3 +384,29 @@ else
 | No separate getter and setter | getter or setter may be removed |
 | Cannot be overridden in derived classes | Can be overridden in derived classes |
 | Should always be private | Can safely be public |
+
+### Abstract Classes
+- Used for classes which are not concrete
+- Abstract class cannot be instantiated (cannot have object in another class)
+
+### Abstract Methods
+- Can only be added in abstract classes
+- Abstract methods are implicitly virtual.
+- They are only declared in base class but does not have implementation.
+- They  must be overridden & implemented in derived classes.
+- Their implementation can only be skipped in base classes if derived class is abstract in itself.
+
+### Virtual vs Abstract Modifiers
+| Virtual | Abstract |
+| ----------- | ----------- |
+| Must have an implementation | Cannot have an implementation |
+| Overriding it is optional | Overriding it is mandatory |
+
+### Extension Methods
+- Extension methods can only be created in static classes
+- Extension method in itself should be static method
+- Extension method are useful to add methods to types we do not have access to like string class.
+- Extension method are useful to add methods to types which cannot have methods defined like enums.
+- Enable us to add more methods without creating a new derived type or modifying original type
+- They are staic methods but can be called as we call methods on instance (object) of the type.
+
