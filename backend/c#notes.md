@@ -388,6 +388,7 @@ else
 ### Abstract Classes
 - Used for classes which are not concrete
 - Abstract class cannot be instantiated (cannot have object in another class)
+- Can have abstract and non abstract methods.
 
 ### Abstract Methods
 - Can only be added in abstract classes
@@ -410,3 +411,29 @@ else
 - Enable us to add more methods without creating a new derived type or modifying original type
 - They are staic methods but can be called as we call methods on instance (object) of the type.
 
+### Interfaces
+- Every 'Type' implementing the interface must implement the methods in the Interface.
+- The methods in Interfaces are explicitly virtual
+- Interfaces cannot be instantiated
+
+### Interfaces vs Abstract Classes <mark>imp<mark/>
+| Interfaces | Abstract Class |
+| ----------- | ----------- |
+| Set of definitions of methods | A type existing only to be derived from |
+| Does not provide any implementation of its own | Can provide implementation of its own |
+| All methods must be overridden in the derived types | Only abstract methods must be overridden in derived types |
+| All methods are implicitly public | Non-abstract methods can have any access modifiers |
+| Methods cannot be sealed or static | Can contain sealed and static methods |
+| Methods are implicitly virtual | Non-abstract methods are not implicitly virtual |
+| Can only contain method or properties definitions | CAn also  have implementations, fields and constructors |
+| A class can implement multiple interfaces | A class cannot inherit from multiple classes |
+
+| Property | Interfaces | Abstract Class |
+| -------- | ----------- | ----------- |
+| **Abstraction over:** | behavior | alikeness |
+| **Defines what an object...** | ...can do | ...is |
+| **Group of types share** | ...behavior | ...general category of things |
+| **Example** | bird, kite and plane fly | bird, snake and dog are animals |
+| **Not sure what it...** | ...is | ...is able to do |
+| **Sure what it...** | ...is able to do | ...is |
+| **Part of speech**| verb | noun |
