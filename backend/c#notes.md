@@ -280,17 +280,17 @@ public enum HttpCode
     Create = 201,
     Unauthorized = 401,
     Forbidden = 403,
-    Internal Server Error 500,
+    Internal Server Error = 500
 }
 ```
-  
+
 ### Access Modifiers
 - Public:
 - Private:
 - Protected: Can be used in dervied classes but not in other classes
 
 ### Virtual Methods
-- Virtual methods or properties may be overridden by the inheriting types.
+- Virtual methods or properties may be overridden in the derived classes.
 
 ### Type Casting
 #### Upcasting
@@ -384,3 +384,56 @@ else
 | No separate getter and setter | getter or setter may be removed |
 | Cannot be overridden in derived classes | Can be overridden in derived classes |
 | Should always be private | Can safely be public |
+
+### Abstract Classes
+- Used for classes which are not concrete
+- Abstract class cannot be instantiated (cannot have object in another class)
+- Can have abstract and non abstract methods.
+
+### Abstract Methods
+- Can only be added in abstract classes
+- Abstract methods are implicitly virtual.
+- They are only declared in base class but does not have implementation.
+- They  must be overridden & implemented in derived classes.
+- Their implementation can only be skipped in base classes if derived class is abstract in itself.
+
+### Virtual vs Abstract Modifiers
+| Virtual | Abstract |
+| ----------- | ----------- |
+| Must have an implementation | Cannot have an implementation |
+| Overriding it is optional | Overriding it is mandatory |
+
+### Extension Methods
+- Extension methods can only be created in static classes
+- Extension method in itself should be static method
+- Extension method are useful to add methods to types we do not have access to like string class.
+- Extension method are useful to add methods to types which cannot have methods defined like enums.
+- Enable us to add more methods without creating a new derived type or modifying original type
+- They are staic methods but can be called as we call methods on instance (object) of the type.
+
+### Interfaces
+- Every 'Type' implementing the interface must implement the methods in the Interface.
+- The methods in Interfaces are explicitly virtual
+- Interfaces cannot be instantiated
+
+### Interfaces vs Abstract Classes <mark>imp<mark/>
+| Interfaces | Abstract Class |
+| ----------- | ----------- |
+| Set of definitions of methods | A type existing only to be derived from |
+| Does not provide any implementation of its own | Can provide implementation of its own |
+| All methods must be overridden in the derived types | Only abstract methods must be overridden in derived types |
+| All methods are implicitly public | Non-abstract methods can have any access modifiers |
+| Methods cannot be sealed or static | Can contain sealed and static methods |
+| Methods are implicitly virtual | Non-abstract methods are not implicitly virtual |
+| Can only contain method or properties definitions | CAn also  have implementations, fields and constructors |
+| A class can implement multiple interfaces | A class cannot inherit from multiple classes |
+
+| Property | Interfaces | Abstract Class |
+| -------- | ----------- | ----------- |
+| **Abstraction over:** | behavior | alikeness |
+| **Defines what an object...** | ...can do | ...is |
+| **Group of types share** | ...behavior | ...general category of things |
+| **Example** | bird, kite and plane fly | bird, snake and dog are animals |
+| **Not sure what it...** | ...is | ...is able to do |
+| **Sure what it...** | ...is able to do | ...is |
+| **Part of speech**| verb | noun |
