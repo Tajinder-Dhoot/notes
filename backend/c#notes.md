@@ -437,3 +437,22 @@ else
 | **Not sure what it...** | ...is | ...is able to do |
 | **Sure what it...** | ...is able to do | ...is |
 | **Part of speech**| verb | noun |
+
+## Exception Handling
+### Types of errors
+- Compilation errors
+- Run time errors
+- Logical Errors
+
+### Throwing Exceptions
+- Throw specific exception first in catch block as a best practice
+- Throw generic exception at last to cover any unknown exception which could occur
+
+## LINQ Queries
+- Stands for **Language Integrated Query**
+- a set of technologies based on the integration of query capabilities directly into the C# language
+
+### Deferred Execution
+- Execution of a LINQ expression is delayed until the value is actually needed.
+- It allows us to work with the latest data.
+- It improves performance as query is only executed only when required avoiding unnecessary execution.
