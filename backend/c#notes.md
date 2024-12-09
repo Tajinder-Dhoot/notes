@@ -409,7 +409,7 @@ else
 - Extension method are useful to add methods to types we do not have access to like string class.
 - Extension method are useful to add methods to types which cannot have methods defined like enums.
 - Enable us to add more methods without creating a new derived type or modifying original type
-- They are staic methods but can be called as we call methods on instance (object) of the type.
+- They are static methods but can be called as we call methods on instance (object) of the type.
 
 ### Interfaces
 - Every 'Type' implementing the interface must implement the methods in the Interface.
