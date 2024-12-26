@@ -1,4 +1,12 @@
+
 # Features of C#
+
+## table of Contents
+1. [Setup New Project](#setup-new-project)  
+2. [Concepts](#concepts)  
+   - [Requirements](#requirements)  
+   - [Installation](#installation) 
+
 ##### Strongly Typed Language
 - Every variable you declare has a type known at compile time. The compiler, or editing tools tell you if you're using that type incorrectly
 
@@ -216,12 +224,12 @@ person1.Age = 30; // this will give error as Age cannot be set after initializat
 - can only be called using instance (object) of a class
 
 ### Static fiels or properties
-- not a good practice to declare static fieldsa and properties
+- not a good practice to declare static fields and properties
 - it adds complexity to code
 
 ### const field
 - const fields are implicitly static
-- to be called same as stattic classes outside the class
+- to be called same as static classes outside the class
 
 ### Best practices
 - Public methods should precede the private methods in a class
@@ -232,14 +240,26 @@ person1.Age = 30; // this will give error as Age cannot be set after initializat
     - `Open/Closed Principle (OCP)`: A class should be open for extension, but closed for modification. You should be able to add new functionality without changing existing code.
     - `Liskov Substitution Principle (LSP)`: Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
     - `Interface Segregation Principle (ISP)`: Clients should not be forced to depend on interfaces they do not use. Instead of one large interface, break it into smaller, more specific interfaces.
-    - `Dependency Inversion Principle (DIP)`: High-level modules should not depend on low-level modules. Both should depend on abstractions. Also, abstractions should not depend on details; details should depend on abstractions.
+    - `Dependency Inversion Principle (DIP)`: High-level modules should not depend on low-level modules. Both should depend on abstractions. Also, abstractions should not depend on details; details should depend on abstractions. In other words, dependencies of a type (such as class) should not be concrete; they should be abstractions.
 - DRY: Don't Repeat Yourself
 - KISS: Keep it Somple, Stupid!
+
+### Dependency Inversion Principle vs Dependency Injection
+| Dependency Inversion Principle | Dependency Injection |
+| ------------------------------ | -------------------- |
+| dependencies of a type (such as class) should not be concrete; they should be abstractions. | class is given the dependencies it needs, it does not create them itself. |
 
 ### Magic Number Pattern
 
 ### enum
-In C#, an enum (short for enumeration) is a distinct value type that defines a set of named constants. It provides a way to represent a collection of related constants, making the code more readable and manageable. Enums are often used to represent things like days of the week, months, status codes, or any set of predefined values.
+- In C#, an enum (short for enumeration) is a distinct value type that defines a set of named constants. 
+- It provides a way to represent a collection of related constants, making the code more readable and manageable. 
+- Enums are often used to represent things like 
+    - days of the week, 
+    - months, status codes, or 
+    - any set of predefined values.
+- cannot have funstions/ methods
+- can create extension classes to create extension methods.
 
 <mark>Under the hood, constants in enum have int values starting from 0 unless changed<marl/>
 
@@ -288,9 +308,6 @@ public enum HttpCode
 - Public:
 - Private:
 - Protected: Can be used in dervied classes but not in other classes
-
-### Virtual Methods
-- Virtual methods or properties may be overridden in the derived classes.
 
 ### Type Casting
 #### Upcasting
@@ -374,13 +391,13 @@ else
 
 | Encapsulation | Data Hiding |
 | ----------- | ----------- |
-| Bundling data with methods that perate on it in the same class | Making fields private instead of public |
+| Bundling data with methods that operate on it in the same class | Making fields private instead of public |
 
 ### Fields & Properties
 | Fields | Properties |
 | ----------- | ----------- |
 | Variable like | Method like |
-| Single Access Modifier | Separate Access Modifiers for gette and setter |
+| Single Access Modifier | Separate Access Modifiers for getter and setter |
 | No separate getter and setter | getter or setter may be removed |
 | Cannot be overridden in derived classes | Can be overridden in derived classes |
 | Should always be private | Can safely be public |
@@ -389,6 +406,10 @@ else
 - Used for classes which are not concrete
 - Abstract class cannot be instantiated (cannot have object in another class)
 - Can have abstract and non abstract methods.
+- Even though abstract classes cannot be instantiated, they can have constructors. Those constructors can be used by the derived classes.
+
+### Virtual Methods
+- Virtual methods or properties may be overridden in the derived classes.
 
 ### Abstract Methods
 - Can only be added in abstract classes
@@ -409,14 +430,14 @@ else
 - Extension method are useful to add methods to types we do not have access to like string class.
 - Extension method are useful to add methods to types which cannot have methods defined like enums.
 - Enable us to add more methods without creating a new derived type or modifying original type
-- They are staic methods but can be called as we call methods on instance (object) of the type.
+- They are static methods but can be called as we call methods on instance (object) of the type.
 
 ### Interfaces
 - Every 'Type' implementing the interface must implement the methods in the Interface.
 - The methods in Interfaces are explicitly virtual
 - Interfaces cannot be instantiated
 
-### Interfaces vs Abstract Classes <mark>imp<mark/>
+### Interfaces vs Abstract Classes <mark>imp<mark>
 | Interfaces | Abstract Class |
 | ----------- | ----------- |
 | Set of definitions of methods | A type existing only to be derived from |
@@ -438,6 +459,14 @@ else
 | **Sure what it...** | ...is able to do | ...is |
 | **Part of speech**| verb | noun |
 
+### Coupling
+- Coupling is the degree of interdependence between classes, measure of how closely the classes are connected
+
+## Design Patterns
+### Template Method Design Pattern
+- We define the template of some algorithm in the base class.
+- Specific steps of this algorithm are implementedn derived class
+
 ## Exception Handling
 ### Types of errors
 - Compilation errors
@@ -457,72 +486,13 @@ else
 - It allows us to work with the latest data.
 - It improves performance as query is only executed only when required avoiding unnecessary execution.
 
-## Coding Practices
-### Clean Code
-clean code indicator = $\frac{\text{number of WTFs}}{\text{minute}}$ <br/>
-Good Quality code should be
-- readable
-- easy to understand
-- easy to maintain
-- easy to find
-- not be over complicated/ tricky
-- developers intentions should be clear
-- dev reading code is never surprised, everything should be what it seems to be
-- each piece of code has one job
-- naming of variables, methods, properties, classes should be meaningful and clear
+## .NET under the Hood
+### Boxing
+- concept of casting casting simple types to objects
 
-### Naming variables, Properties, Methods, Classes
-- If a variable or a method requires a comment to be added, it means its name is bad.
-- method names should be expressive in itself.
-
-#### Good Names
-- expressive in itself
-- short and precise
-
-#### Bad Names
-- meaningless names (unclear purpose)
-    - var info
-- overspecific names
-- Hungarian Notation (adding type as prefix to variable names, was used earlier)
-    - intAge
-    - strName
-- similar names
-- confusing names
-- use of abbreviations
-    - var addr, var add for "address"
-- Exceptions for abbreviations
-    - Exception ex
-    - for int(var i = 0; i < 5; i++>)
-    - int Add(int a, int b)
-
-
-#### Boy Scout Rule: Always leave the code you are working on a little bit better than you found it.
-- Fix bad name
-- Split a large method
-
-### Principle of least surprise
-- This principle says that the code we write should behave in a way that most programmers will expect it to behave.
-- In other words, the readers of the code should never be surprised by what they see.
-    - The methods and classes should do what their names say.
-    - They should do only this thing.
-    - They should do it well.
-    - They should not do anything else.
-
-```c#
-// following code does what the method name says
-public static List<string> GetWordsShorterThan(int length, List<string> words)
-{
-    List<string> results = [];
-    foreach (var word in words)
-    {
-        if (word.Length < length)
-        {
-            results.Add(word);
-        }
-    }
-    return results;
-}
-```
+## Generic Types
+### Tuples
+- a set of values
 
 ```c#
 // following code does not follow the "Principle of least surprise"
@@ -551,3 +521,106 @@ public void SaveUser()
 }
 
 ```
+
+## Key Differences
+
+### List vs IEnumerable
+| Requirement | IEnumerable | List |
+| ----------- | ---- | ----------- |
+| **Deferred Execution is Needed:** | When working with LINQ queries that are executed lazily, IEnumerable allows you to defer execution until the data is actually iterated. | If simple collection operations are sufficient without LINQ's deferred execution, a List may simplify your code. |
+| **Read-Only Access is Sufficient:** | If you only need to loop through a collection without modifying it, IEnumerable is a good choice. | iEnumerbale is better option for read only access. |
+| **Mutability is Required:** | does not support mutability. | If you need to add, remove, or modify elements in the collection, List is the appropriate choice.|
+| **Random Access by Index is Needed:** | does not support access to indices. | List supports efficient indexed access, allowing you to retrieve elements by position (list[index]). |
+| **Minimize Overhead:** | IEnumerable is more lightweight than List and should be used when you don't need the features of a List like adding, removing, or indexing. | |
+| **Abstraction is Required:** | If you want to decouple your code from specific collection types, exposing IEnumerable in method signatures or properties helps hide implementation details. | |
+| **Working with large datasets:** | When handling large datasets, especially when fetching data from a database or reading a file, IEnumerable streams the data and avoids loading everything into memory at once. | |
+
+#### Conclusion
+| Requirement | IEnumerable | List |
+| ----------- | ---- | ----------- |
+| **Deferred Execution is Needed:** | &#x2714; | &#x274C; |
+| **Read-Only Access is Sufficient:** | &#x2714; | &#x274C;|
+| **Mutability is Required:** | &#x274C; | &#x2714; |
+| **Random Access by Index is Needed:** | &#x274C; | &#x2714; |
+| **Minimize Overhead:** | &#x2714; | &#x274C; |
+| **Abstraction is Required:** | &#x2714; | &#x274C; |
+| **Working with large datasets:** | &#x2714; | &#x274C; |
+
+### Check if Enumerable has any element using Any() vs Count()/ LongCount()
+| Features | `Any()` | `Count()/ LongCount()` |
+| -------- | ----- | -------------------- |
+| **Difference:** | checks if at least one element exists in the collection and stops as soon as it finds the first element. | Count() or LongCount() iterates through the entire collection to determine the total number of elements, even if you're only interested in whether it contains any elements. |
+
+#### e.g.
+```c#
+class C
+{
+    public string M1(IEnumerable<string> list)
+    {
+        list.Count() ? "Not empty" : "Empty"; // do not use this
+
+        list.LongCount() ? "Not empty" : "Empty"; // do not use this
+
+        list.Any() ? "Not empty" : "Empty"; // use this
+    }
+}
+```
+
+### Check if Collection has any element using `Any()` vs `Length/ Count/ IsEmpty`
+| Features | `Any()` | `Length/ Count/ IsEmpty` |
+| -------- | ----- | -------------------- |
+| **Difference:** | Any(), which is an extension method, uses language integrated query (LINQ). It's more efficient to rely on the collection's own properties, and it also clarifies intent. | `Any()` vs `Length/ Count/ IsEmpty` are collections own properties and intent is more clear. |
+
+#### e.g.
+```c#
+class C
+{
+    bool HasElements(string[] strings)
+    {
+        return strings.Any(); // do not use this
+    }
+
+    bool HasElements(string[] strings)
+    {
+        return strings.Length > 0; // use this
+    }
+
+    bool HasElements(string[] strings)
+    {
+        return strings.Count > 0; // or use this
+    }
+}
+```
+
+### Abstract Class vs Interface vs Static Class
+
+| Feature                  | Abstract Class | Interface | Static Class | Extension Class |
+| ------------------------ | -------------- | --------- | ------------ | --------------- |
+| **Instantiation**        | &#x274C;       | &#x274C;  | &#x274C;     | &#x274C;        |
+| **Multiple Inheritance** | &#x274C;       | &#x2714;  | &#x274C;     | &#x274C;        |
+
+
+
+### Difference Between `readonly` and `const` in C#
+
+| Feature                     | `const`                                    | `readonly`                               |
+|-----------------------------|--------------------------------------------|-----------------------------------------|
+| **Value Assignment**        | Must be assigned at compile-time.          | Can be assigned at runtime.             |
+| **Initialization**          | Assigned when declared in the same line.  | Assigned either at declaration or in the constructor. |
+| **Scope**                   | Implicitly `static`. Accessible without an instance of the class. | Instance-specific or `static`, depending on declaration. |
+| **Value Type**              | Only constant literals or compile-time values (e.g., numbers, strings, `null`). | Can hold runtime-computed values, including objects. |
+| **Performance**             | Value is inlined at compile-time.          | Value is resolved at runtime.           |
+| **Usage**                   | Ideal for constants whose values are known at compile time and won't change (e.g., `PI = 3.14`). | Ideal for values that might be computed at runtime or depend on the instance. |
+| **Modifiers Allowed**       | Implicitly `static`, cannot be combined with other modifiers. | Can be combined with `static`.          |
+
+### Access Modifiers and Accessibility
+
+| Caller's Location                    | `public` | `protected internal` | `protected` | `internal` | `private protected` | `private` | `file`   |
+| ------------------------------------------ |----------|--------------- |-------------|------------|----------------------|--------- |--------- |
+| **Within the file**                        | &#x2714; | &#x2714;       | &#x2714;    | &#x2714;    | &#x2714;            | &#x2714; | &#x2714; |
+| **Within the class**                       | &#x2714; | &#x2714;       | &#x2714;    | &#x2714;    | &#x2714;            | &#x2714; | &#x274C; |
+| **Derived class (same assembly)**          | &#x2714; | &#x2714;       | &#x2714;    | &#x2714;    | &#x2714;            | &#x274C; | &#x274C; |
+| **Non-derived class (same assembly)**      | &#x2714; | &#x2714;       | &#x274C;    | &#x2714;    | &#x274C;            | &#x274C; | &#x274C; |
+| **Derived class (different assembly)**     | &#x2714; | &#x2714;       | &#x2714;    | &#x274C;    | &#x274C;            | &#x274C; | &#x274C; |
+| **Non-derived class (different assembly)** | &#x2714; | &#x274C;       | &#x274C;    | &#x274C;    | &#x274C;            | &#x274C; | &#x274C; |
+

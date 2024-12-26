@@ -4,17 +4,29 @@
 
 ### When to uplift the state?
 
-- To collect data from multiple children, or to have two child components communicate with each other, declare the shared state in their parent component instead. The parent component can pass that state back down to the children via props. This keeps the child components in sync with each other and with their parent.
+- To collect data from multiple children,
+- When state of parent componnet is updated by child component,
+- To have two child components communicate with each other, 
+
+declare the shared state in their parent component instead. The parent component can pass that state back down to the children via props. This keeps the child components in sync with each other and with their parent.
 
 ### When a componnet re-renders?
-- Scenario: A acomponent has useState 'squares & setSquares'. Calling the setSquares function lets React know the state of the component has changed. This will trigger a re-render of the components that use the squares state (Board) as well as its child components (the Square components that make up the board).
+- Scenario: A component has useState 'squares & setSquares'. Calling the setSquares function lets React know the state of the component has changed. This will trigger a re-render of the components that use the squares state (Board) as well as its child components (the Square components that make up the board).
 
-- The component along with its child components render when its state is updated, other components remain same.
+- The component along with its child components render `when its state is updated`, other components remain same.
 
 ### Props
 - We can pass functions in props as well, functions such as the ones updating state of the component.
 
-### Difference in func and func() in Props
+## Hooks
+- ### Limitations
+- Can only be called at top level of components.
+-   Cannot be called from inside functions.
+- cannot be created outside components.
+
+## Key Differences
+
+### func vs func() in Props
 
 Let's say we ahve function named handleClick. If we pass handleClick in prop, it means tis function i spassed down to the child component and will be called when there is a click from child component.  If we pass handleClick() (with brackets) in prop, we will call this function as soon as we try to pass this function in prop, which would re render the componnet again, resulting in calling this again when trying to pass it down the prop. It results in endless loop. So we don't place () with functions while passing those as props to child components. If we have to pass some value to function as params, we pass the whole function like below:
         
