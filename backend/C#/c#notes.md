@@ -490,6 +490,22 @@ else
 ### Boxing
 - concept of casting casting simple types to objects
 
+### Garbage Collection
+- In .NET, the heaps memory management mechanism is called the Garbage Collector (GC).
+- Once an `object` is no longer used, it should be removed from the computer's memory so that new objects.
+- It is one of the critical components of the Common Language Runtime.
+- After the Garbage Collector frees the memory occupied by unused objects, it performs memory defragmentation.
+- Runs in background on its own separte thread.
+- It may stop all other threads when working.
+- It might cause performance challenges.
+
+#### Memory Fragmentation
+- Chunks of free memory available between memory occupied by some objects.
+
+#### Memory De-Fragmentation
+- The process of moving the objects in memory to create a bigger block of free memory
+
+
 ## Generic Types
 ### Tuples
 - a set of values
