@@ -440,3 +440,11 @@ In SQL, data types define the kind of values a column can hold. They vary slight
 | Complex logic with multiple outputs.   | &#x2714;                    | ❌                   |
 | Use in views or other SQL queries.     | ❌                    | &#x2714;                   |
 | Need transaction control.              | &#x2714;                    | ❌                   | 
+
+### Ranks vs Dense Rank vs Row_Number()
+| Employee_ID | Salary | Rank | Dense_Rank | Row_Number |
+|-------------|--------|------|------------|------------|
+| 2           | 7000   | 1    | 1          | 1          |
+| 3           | 7000   | 1    | 1          | 2          |
+| 1           | 5000   | 3    | 2          | 3          |
+| 4           | 3000   | 4    | 3          | 4          |

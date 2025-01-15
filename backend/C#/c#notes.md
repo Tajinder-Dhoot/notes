@@ -104,15 +104,6 @@ static async Task<int> Main(string[] args) { }
 
 ## Basics of OOPS
 
-### Variables
-
-| readonly | const |
-| ----------- | ----------- |
-| used when we want a field never to change after it has been set in the contructor | used for things with contant value known at compilation time |
-| value might not be known at compilation time | value must be known at compilation time |
-| if value is set during compiling or run time, it cannot be changed| value is already set during compilation, so cannot be reset during runtime and changed later |
-
-
 ### Methods vs Computed Properties
 
 ```c#
@@ -249,8 +240,6 @@ person1.Age = 30; // this will give error as Age cannot be set after initializat
 | ------------------------------ | -------------------- |
 | dependencies of a type (such as class) should not be concrete; they should be abstractions. | class is given the dependencies it needs, it does not create them itself. |
 
-### Magic Number Pattern
-
 ### enum
 - In C#, an enum (short for enumeration) is a distinct value type that defines a set of named constants. 
 - It provides a way to represent a collection of related constants, making the code more readable and manageable. 
@@ -381,7 +370,7 @@ if(cheddar is not null)
 }
 else
 {
-    Console.WriteLine("conversion failed);
+    Console.WriteLine("conversion failed");
 }
 ```
 
@@ -608,14 +597,24 @@ class C
 }
 ```
 
-### Abstract Class vs Interface vs Static Class
+### Abstract Class vs Interface vs Static Class vs Extension Class
 
 | Feature                  | Abstract Class | Interface | Static Class | Extension Class |
 | ------------------------ | -------------- | --------- | ------------ | --------------- |
 | **Instantiation**        | &#x274C;       | &#x274C;  | &#x274C;     | &#x274C;        |
 | **Multiple Inheritance** | &#x274C;       | &#x2714;  | &#x274C;     | &#x274C;        |
 
+### Struct vs Class
 
+| **Feature**           | **Struct**                  | **Class**                     |
+|------------------------|-----------------------------|-------------------------------|
+| **Type**              | Value Type                 | Reference Type                |
+| **Storage Location**  | Stack                      | Heap                          |
+| **Inheritance**       | No inheritance             | Supports inheritance          |
+| **Default Constructor** | Not allowed               | Allowed                       |
+| **Mutability**        | Immutable (recommended)    | Mutable                       |
+| **Performance**       | Better for small data      | Better for large/complex data |
+| **Memory Management** | Automatic (scope-based)    | Garbage Collector (GC)        |
 
 ### Difference Between `readonly` and `const` in C#
 
@@ -640,3 +639,10 @@ class C
 | **Derived class (different assembly)**     | &#x2714; | &#x2714;       | &#x2714;    | &#x274C;    | &#x274C;            | &#x274C; | &#x274C; |
 | **Non-derived class (different assembly)** | &#x2714; | &#x274C;       | &#x274C;    | &#x274C;    | &#x274C;            | &#x274C; | &#x274C; |
 
+### Predicate vs Func vs Action
+
+| **Differences**   | **Predicate<T>** | **Func<T>** | **Action<T>**                                     |
+|-----------------|----------------------|-----------------|-------------------------------------------------|
+| **Input Parameters** | 1 | 0 - 16 | 0 -16 |
+| **Return Type** | `bool` | any value | `void` |
+| **Purpose** | Encapsulates a condition or test. | Encapsulates a method that returns a value. | Encapsulates a method that performs an action without returning value. |
